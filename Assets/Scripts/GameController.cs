@@ -37,8 +37,10 @@ public class GameController : MonoBehaviour
                 {
                     if (col.tag == "Player")
                         score.IncrementScore();
-                    else
+                    else if (col.tag == "Killer")
                         score.DecrementScore();
+                    else
+                        score.AddFailCounter();
 
                     Destroy(gameObject);
                 }

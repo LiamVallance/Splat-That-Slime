@@ -10,6 +10,7 @@ TagManager:
   - SpawnRight
   - ScoreManager
   - SpawnManager
+  - GameManager
   layers:
   - Default
   - TransparentFX
