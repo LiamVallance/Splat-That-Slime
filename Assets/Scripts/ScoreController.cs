@@ -6,9 +6,6 @@ using TMPro;
 
 public class ScoreController : MonoBehaviour
 {
-    GameObject GameManager;
-    UIManager uIManager;
-
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Image[] Fail_Counters;
     private int score = 0;
@@ -17,8 +14,7 @@ public class ScoreController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager = GameObject.FindGameObjectWithTag("GameManager");
-        uIManager = (UIManager)GameManager.GetComponent(typeof(UIManager));
+
     }
 
     // Update is called once per frame
@@ -53,6 +49,6 @@ public class ScoreController : MonoBehaviour
 
     private void GameOver()
     {
-        uIManager.GameOver();
+        FindObjectOfType<GameManager>().GameOver();
     }
 }

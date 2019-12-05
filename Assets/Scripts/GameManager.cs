@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverUI;
-
-    public void IsGameOver()
-    {
-        gameOverUI.SetActive(true);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +14,10 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GameOver()
+    {
+        FindObjectOfType<UIManager>().IsGameOver();
     }
 }
