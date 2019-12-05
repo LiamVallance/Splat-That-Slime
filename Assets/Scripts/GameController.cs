@@ -3,15 +3,17 @@
 public class GameController : MonoBehaviour
 {
     Collider2D col;
-    GameObject ScoreManager;
-    ScoreController score;
+    ScoreController ScM;
 
     // Start is called before the first frame update
     void Start()
     {
         col = GetComponent<Collider2D>();
-        ScoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
-        score = (ScoreController)ScoreManager.GetComponent(typeof(ScoreController));
+    }
+
+    void Awake()
+    {
+        ScM = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreController>();
     }
 
     // Update is called once per frame
@@ -34,11 +36,11 @@ public class GameController : MonoBehaviour
                 if (col == touchCollider)
                 {
                     if (col.tag == "Player")
-                        score.IncrementScore();
+                        ScM.IncrementScore();
                     else if (col.tag == "Killer")
-                        score.DecrementScore();
+                        ScM.DecrementScore();
                     else
-                        score.AddFailCounter();
+                        ScM.AddFailCounter();
 
                     Destroy(gameObject);
                 }
@@ -50,5 +52,10 @@ public class GameController : MonoBehaviour
     {
         if (transform.position.x <= -5) { Destroy(gameObject); }
         if (transform.position.x >= 5) { Destroy(gameObject); }
+    }
+
+    public void GameOver()
+    {
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<UIManager>().IsGameOver();
     }
 }

@@ -11,6 +11,8 @@ public class ScoreController : MonoBehaviour
     private int score = 0;
     private int fail_Counter = 0;
 
+    GameController GameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,6 @@ public class ScoreController : MonoBehaviour
 
     private void GameOver()
     {
-        FindObjectOfType<GameManager>().GameOver();
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameController>().GameOver();
     }
 }
