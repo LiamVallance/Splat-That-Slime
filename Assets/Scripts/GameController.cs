@@ -4,6 +4,7 @@ public class GameController : MonoBehaviour
 {
     Collider2D col;
     ScoreController ScM;
+    SpawnController SpM;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         ScM = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreController>();
+        SpM = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnController>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,10 @@ public class GameController : MonoBehaviour
                 if (col == touchCollider)
                 {
                     if (col.tag == "Player")
+                    {
                         ScM.IncrementScore();
+                        SpM.speed++;
+                    }
                     else if (col.tag == "Killer")
                         ScM.DecrementScore();
                     else

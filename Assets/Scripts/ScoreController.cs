@@ -8,10 +8,8 @@ public class ScoreController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Image[] Fail_Counters;
-    private int score = 0;
+    public int score = 0;
     private int fail_Counter = 0;
-
-    GameController GameManager;
 
     // Start is called before the first frame update
     void Start()

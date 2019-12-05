@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2862334417760540893}
   - component: {fileID: 1735783207649363206}
   - component: {fileID: -8726545760294370900}
-  - component: {fileID: -4327445703022928102}
+  - component: {fileID: 6522180169731111124}
   - component: {fileID: -2704719700081787993}
   m_Layer: 0
   m_Name: Square
@@ -104,8 +104,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-4327445703022928102
-CircleCollider2D:
+--- !u!61 &6522180169731111124
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,8 +118,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.13, y: 1.13}
+    newSize: {x: 1.13, y: 1.13}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.565
+  m_Size: {x: 1.5, y: 1.4}
+  m_EdgeRadius: 0
 --- !u!114 &-2704719700081787993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,4 +142,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb64c23a6f762d848a1fa08fd1f33c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sM: {fileID: 5522540283649491155, guid: 4648185442c67af48a4cb185e4ea1563, type: 3}
+  speed: 0
