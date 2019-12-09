@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < Input.touchCount; i++)
             {
                 Touch touch = Input.GetTouch(i);
                 Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
