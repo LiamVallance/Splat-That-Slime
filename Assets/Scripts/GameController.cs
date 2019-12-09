@@ -29,25 +29,28 @@ public class GameController : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-
-            if (touch.phase == TouchPhase.Began)
+            for (int i = 0; i < 3; i++)
             {
-                Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
-                if (col == touchCollider)
-                {
-                    if (col.tag == "Player")
-                    {
-                        ScM.IncrementScore();
-                        SpM.speed++;
-                    }
-                    else if (col.tag == "Killer")
-                        ScM.DecrementScore();
-                    else
-                        ScM.AddFailCounter();
+                Touch touch = Input.GetTouch(i);
+                Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
 
-                    Destroy(gameObject);
+                if (touch.phase == TouchPhase.Began)
+                {
+                    Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
+                    if (col == touchCollider)
+                    {
+                        if (col.tag == "Player")
+                        {
+                            ScM.IncrementScore();
+                            SpM.speed++;
+                        }
+                        else if (col.tag == "Killer")
+                            ScM.DecrementScore();
+                        else
+                            ScM.AddFailCounter();
+
+                        Destroy(gameObject);
+                    }
                 }
             }
         }
