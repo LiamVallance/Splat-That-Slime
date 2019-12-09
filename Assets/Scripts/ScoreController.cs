@@ -7,6 +7,10 @@ using TMPro;
 public class ScoreController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Animation AddScoreText;
+    [SerializeField] private Animation LoseScoreText;
+    [SerializeField] private Animation FailText;
+    
     [SerializeField] private Image[] Fail_Counters;
     public int score = 0;
     private int fail_Counter = 0;
@@ -25,6 +29,7 @@ public class ScoreController : MonoBehaviour
 
     public void IncrementScore()
     {
+        AddScoreText.Play();
         score += 10;
     }
 
@@ -32,7 +37,10 @@ public class ScoreController : MonoBehaviour
     {
         if (score > 0)
         {
-            score -= 10;
+            LoseScoreText.Play();
+            score -= 50;
+            if (score < 0)
+                score = 0;
         }
     }
 
@@ -40,6 +48,7 @@ public class ScoreController : MonoBehaviour
     {
         if (fail_Counter < 3)
         {
+            FailText.Play();
             fail_Counter++;
             Fail_Counters[fail_Counter-1].enabled = true;
         }
