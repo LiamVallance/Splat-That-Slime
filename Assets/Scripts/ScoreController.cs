@@ -42,11 +42,12 @@ public class ScoreController : MonoBehaviour
         {
             LoseScoreText.Play();
             score -= 50;
-            if (score < 0)
+            if (score < 0) // Do not allow score to decrement into minus values
                 score = 0;
         }
     }
 
+    // Adds fail counter when fail shape is hit until max then shows game over screen
     public void AddFailCounter()
     {
         if (fail_Counter < 3)
@@ -59,6 +60,15 @@ public class ScoreController : MonoBehaviour
             GameOver();
     }
 
+
+    // Calls game over state in GameController script, also calls for the highscore to be checked
+    private void GameOver()
+    {
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameController>().GameOver();
+        HighScore();
+    }
+
+    // Checks finished games score against the local stored highscore and updates if higher
     public void HighScore()
     {
         if (score > PlayerPrefs.GetInt("HighScore"))
@@ -66,11 +76,5 @@ public class ScoreController : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", score);
             highScoreText.text = score.ToString();
         }
-    }
-
-    private void GameOver()
-    {
-        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameController>().GameOver();
-        HighScore();
     }
 }

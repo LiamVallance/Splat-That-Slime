@@ -14,13 +14,12 @@ public class SpawnController : MonoBehaviour
     GameController GM;
 
     public int speed = 100;
-    //private int stage = 1;
+    public int stage = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < spawnPoints.Length; i++)
-            Spawn(i);
+        Spawn(0);
     }
 
     void Awake()
@@ -31,7 +30,8 @@ public class SpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < spawnPoints.Length; i++)
+        //for (int i = 0; i < spawnPoints.Length; i++)
+        for (int i = 0; i < stage; i++)
         {
             if (spawnPoints[i].tag == "SpawnRight")
             {

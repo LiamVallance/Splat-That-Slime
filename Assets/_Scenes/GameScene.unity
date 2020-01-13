@@ -2179,12 +2179,13 @@ MonoBehaviour:
   - {fileID: 4599151057911784353, guid: 8bc32dd892ab7234f8d6e570836f1a90, type: 3}
   - {fileID: 4599151057911784353, guid: da710cfbb542deb47ba91565454a328b, type: 3}
   lastShape:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4599151057911784353, guid: da710cfbb542deb47ba91565454a328b, type: 3}
+  - {fileID: 4599151057911784353, guid: da710cfbb542deb47ba91565454a328b, type: 3}
+  - {fileID: 4599151057911784353, guid: da710cfbb542deb47ba91565454a328b, type: 3}
+  - {fileID: 4599151057911784353, guid: da710cfbb542deb47ba91565454a328b, type: 3}
+  - {fileID: 4599151057911784353, guid: da710cfbb542deb47ba91565454a328b, type: 3}
   speed: 100
+  stage: 1
 --- !u!4 &1299059239
 Transform:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
         TakeInput();
     }
 
+    // Takes players inputs on screen and handles players interaction with game assets/ gameplay
     void TakeInput()
     {
         if (Input.touchCount > 0)
@@ -43,6 +44,16 @@ public class GameController : MonoBehaviour
                         {
                             ScM.IncrementScore();
                             SpM.speed++;
+                            if (ScM.score > 400)
+                                SpM.stage = 5;
+                            else if (ScM.score > 300)
+                                SpM.stage = 4;
+                            else if (ScM.score > 200)
+                                SpM.stage = 3;
+                            else if (ScM.score > 100)
+                                SpM.stage = 2;
+                            else
+                                SpM.stage = 1;
                         }
                         else if (col.tag == "Killer")
                             ScM.DecrementScore();
@@ -56,6 +67,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // Ensures assets are removed from memory once no longer required
     void CheckBounds()
     {
         if (transform.position.x <= -5) { Destroy(gameObject); }
