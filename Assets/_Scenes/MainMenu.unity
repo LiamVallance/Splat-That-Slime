@@ -621,7 +621,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f59d40b51ab2a5b4f95612d4e29d51c9,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: bd384c5dd85216c4ea967157707db2b2,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -778,7 +778,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f59d40b51ab2a5b4f95612d4e29d51c9,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: bd384c5dd85216c4ea967157707db2b2,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1413,7 +1413,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f59d40b51ab2a5b4f95612d4e29d51c9,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: bd384c5dd85216c4ea967157707db2b2,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1570,7 +1570,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f59d40b51ab2a5b4f95612d4e29d51c9,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: bd384c5dd85216c4ea967157707db2b2,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: af7fafaaf92459046b54293a7b15a0da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0274c9483f48d6049a0670e713214938, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1848,7 +1848,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 8.91
 --- !u!222 &1689464541
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2791700600567144250}
   - component: {fileID: -6421643709998947163}
   - component: {fileID: -1015886210860607042}
-  - component: {fileID: 7084345186275688307}
+  - component: {fileID: -8787939173086583380}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Killer
@@ -130,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.4}
   m_EdgeRadius: 0
---- !u!114 &7084345186275688307
+--- !u!114 &-8787939173086583380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,6 +139,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4599151057911784353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb64c23a6f762d848a1fa08fd1f33c7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e73c8fa6d7cd14e4bad7967da2d9f697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

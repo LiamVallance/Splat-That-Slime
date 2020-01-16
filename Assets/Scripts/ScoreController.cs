@@ -8,14 +8,21 @@ public class ScoreController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
-    [SerializeField] private Animation AddScoreText;
-    [SerializeField] private Animation LoseScoreText;
+    [SerializeField] private TextMeshProUGUI AddScoreText;
+    [SerializeField] private Animation AddScoreAnim;
+    [SerializeField] private Animation LoseScoreAnim;
     [SerializeField] private Animation FailText;
+    [SerializeField] private Slider slider;
+    [SerializeField] private TextMeshProUGUI comboText;
     
     [SerializeField] private Image[] Fail_Counters;
     public int score = 0;
+    public int comboCounter;
+    public int comboBonus;
     private int highScore;
     private int fail_Counter = 0;
+
+    private int addScoreAmount;
 
     // Start is called before the first frame update
     void Start()
@@ -28,19 +35,20 @@ public class ScoreController : MonoBehaviour
     void Update()
     {
         scoreText.text = score.ToString();
+        ComboUpdate();
     }
 
     public void IncrementScore()
     {
-        AddScoreText.Play();
-        score += 10;
+        AddScoreAnim.Play();
+        score += 10*comboBonus;
     }
 
     public void DecrementScore()
     {
         if (score > 0)
         {
-            LoseScoreText.Play();
+            LoseScoreAnim.Play();
             score -= 50;
             if (score < 0) // Do not allow score to decrement into minus values
                 score = 0;
@@ -57,7 +65,21 @@ public class ScoreController : MonoBehaviour
             Fail_Counters[fail_Counter-1].enabled = true;
         }
         if (fail_Counter >= 3)
-            GameOver();
+            GameOver();   
+    }
+
+    private void ComboUpdate()
+    {
+        slider.value = comboCounter;
+        comboText.text = "Combo x" + comboBonus;
+        addScoreAmount = 10*comboBonus;
+        AddScoreText.text = "+" + addScoreAmount.ToString();
+
+        if (comboCounter > 10)
+        {
+            comboCounter = 0;
+            comboBonus++;
+        }
     }
 
 

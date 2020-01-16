@@ -6,6 +6,10 @@ public class GameController : MonoBehaviour
     ScoreController ScM;
     SpawnController SpM;
 
+    [SerializeField] private GameObject gameOverUI;
+
+    public string lastShape;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckBounds();
         TakeInput();
     }
 
@@ -38,44 +41,45 @@ public class GameController : MonoBehaviour
                 if (touch.phase == TouchPhase.Began)
                 {
                     Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
-                    if (col == touchCollider)
+                    if (touchCollider.tag == "Player")
                     {
-                        if (col.tag == "Player")
-                        {
-                            ScM.IncrementScore();
-                            SpM.speed++;
-                            if (ScM.score > 400)
-                                SpM.stage = 5;
-                            else if (ScM.score > 300)
-                                SpM.stage = 4;
-                            else if (ScM.score > 200)
-                                SpM.stage = 3;
-                            else if (ScM.score > 100)
-                                SpM.stage = 2;
-                            else
-                                SpM.stage = 1;
-                        }
-                        else if (col.tag == "Killer")
-                            ScM.DecrementScore();
+                        ScM.IncrementScore();
+                        SpM.speed++;
+                        if (ScM.score > 400)
+                            SpM.stage = 5;
+                        else if (ScM.score > 300)
+                            SpM.stage = 4;
+                        //else if (ScM.score > 200)
+                        //    SpM.stage = 3;
+                        //else if (ScM.score > 100)
+                        //    SpM.stage = 2;
                         else
-                            ScM.AddFailCounter();
-
-                        Destroy(gameObject);
+                            SpM.stage = 3;
+                        if (lastShape == "Player")
+                            ScM.comboCounter++;
                     }
+                    else if (touchCollider.tag == "Killer")
+                    {
+                        ScM.DecrementScore();
+                        ScM.comboCounter = 0;
+                        ScM.comboBonus = 1;
+                    }
+                    else
+                    {
+                        ScM.AddFailCounter();
+                        ScM.comboCounter = 0;
+                        ScM.comboBonus = 1;
+                    }
+                        
+                    lastShape = touchCollider.tag;
+                    Destroy(touchCollider.gameObject);
                 }
             }
         }
     }
 
-    // Ensures assets are removed from memory once no longer required
-    void CheckBounds()
-    {
-        if (transform.position.x <= -5) { Destroy(gameObject); }
-        if (transform.position.x >= 5) { Destroy(gameObject); }
-    }
-
     public void GameOver()
     {
-        GameObject.FindGameObjectWithTag("GameManager").GetComponent<UIManager>().IsGameOver();
+        gameOverUI.SetActive(true);
     }
 }

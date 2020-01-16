@@ -14,7 +14,7 @@ public class SpawnController : MonoBehaviour
     GameController GM;
 
     public int speed = 100;
-    public int stage = 1;
+    public int stage;
 
     // Start is called before the first frame update
     void Start()
