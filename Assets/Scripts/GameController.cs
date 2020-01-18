@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
                 if (touch.phase == TouchPhase.Began)
                 {
                     Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
-                    if (touchCollider.tag == "Player")
+                    if (touchCollider.tag == "S_Green")
                     {
                         ScM.IncrementScore();
                         SpM.speed++;
@@ -55,10 +55,10 @@ public class GameController : MonoBehaviour
                         //    SpM.stage = 2;
                         else
                             SpM.stage = 3;
-                        if (lastShape == "Player")
+                        if (lastShape == "S_Green")
                             ScM.comboCounter++;
                     }
-                    else if (touchCollider.tag == "Killer")
+                    else if (touchCollider.tag == "S_Red")
                     {
                         ScM.DecrementScore();
                         ScM.comboCounter = 0;

@@ -12,6 +12,12 @@ TagManager:
   - SpawnManager
   - GameManager
   - MenuManager
+  - S_Green
+  - S_Red
+  - S_Blue
+  - S_Gold
+  - S_White
+  - S_Purple
   layers:
   - Default
   - TransparentFX
