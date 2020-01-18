@@ -22,7 +22,7 @@ public class SelfDestroy : MonoBehaviour
     {
         if (transform.position.x <= -5 || transform.position.x >= 5) 
         {
-            if (gameObject.tag == "Player") 
+            if (gameObject.tag == "S_Green") 
             {
                 ScM.comboCounter = 0;
                 ScM.comboBonus = 1;

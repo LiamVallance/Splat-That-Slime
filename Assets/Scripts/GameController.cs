@@ -72,10 +72,17 @@ public class GameController : MonoBehaviour
                     }
                         
                     lastShape = touchCollider.tag;
-                    Destroy(touchCollider.gameObject);
+                    Splat(touchCollider.gameObject);
+                    //Destroy(touchCollider.gameObject);
                 }
             }
         }
+    }
+
+    private void Splat(GameObject slime)
+    {
+        slime.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        slime.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public void GameOver()

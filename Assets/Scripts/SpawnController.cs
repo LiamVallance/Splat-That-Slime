@@ -53,7 +53,10 @@ public class SpawnController : MonoBehaviour
         if (spawnPoints[spawnPoint].tag == "SpawnRight")
             shape.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0));
         else
+        {
+            shape.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
             shape.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0));
+        }
 
         lastShape[spawnPoint] = shape;
 
