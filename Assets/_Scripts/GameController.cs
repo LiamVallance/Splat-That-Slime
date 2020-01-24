@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
@@ -47,44 +48,58 @@ public class GameController : MonoBehaviour
                 if (touch.phase == TouchPhase.Began)
                 {
                     Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
-                    if (touchCollider.tag == "S_Green")
-                    {
-                        ScM.IncrementScore();
-                        SpM.speed++;
-                        if (ScM.score > 400)
-                            SpM.stage = 5;
-                        else if (ScM.score > 300)
-                            SpM.stage = 4;
-                        //else if (ScM.score > 200)
-                        //    SpM.stage = 3;
-                        //else if (ScM.score > 100)
-                        //    SpM.stage = 2;
-                        else
-                            SpM.stage = 3;
-                        if (lastShape == "S_Green")
-                            ScM.comboCounter++;
-                    }
-                    else if (touchCollider.tag == "S_Red")
-                    {
-                        ScM.DecrementScore();
-                        ScM.comboCounter = 0;
-                        ScM.comboBonus = 1;
-                    }
-                    else
-                    {
-                        ScM.AddFailCounter();
-                        ScM.comboCounter = 0;
-                        ScM.comboBonus = 1;
-                    }
+                    
                         
                     lastShape = touchCollider.tag;
-                    Splat(touchCollider.gameObject);
-                    //Destroy(touchCollider.gameObject);
+                    checkSlime(touchCollider.gameObject);
                 }
             }
         }
     }
 
+    private void Score()
+    {
+        ScM.IncrementScore();
+        SpM.speed++;
+        if (ScM.score > 400)
+            SpM.stage = 5;
+        else if (ScM.score > 300)
+            SpM.stage = 4;
+        else
+            SpM.stage = 3;
+        if (lastShape == "S_Green")
+            ScM.comboCounter++;
+    }
+
+    private void Lose()
+    {
+        ScM.DecrementScore();
+        ScM.comboCounter = 0;
+        ScM.comboBonus = 1;
+    }
+
+    private void Fail()
+    {
+        ScM.AddFailCounter();
+        ScM.comboCounter = 0;
+        ScM.comboBonus = 1;
+    }
+
+    private void checkSlime(GameObject slime)
+    {
+        if (slime.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled == false) { return; }
+        
+        Splat(slime);
+
+        if (slime.tag == "S_Green")
+            Score();
+        else if (slime.tag == "S_Red")
+            Lose();
+        else
+            Fail();
+    }
+
+    
     private void Splat(GameObject slime)
     {
         slime.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
