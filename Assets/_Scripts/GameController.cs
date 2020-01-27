@@ -49,7 +49,6 @@ public class GameController : MonoBehaviour
                 {
                     Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
                     
-                        
                     lastShape = touchCollider.tag;
                     checkSlime(touchCollider.gameObject);
                 }

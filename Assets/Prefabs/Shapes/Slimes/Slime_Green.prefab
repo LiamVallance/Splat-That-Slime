@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6604120599022740525}
   - component: {fileID: 910265335076919606}
   - component: {fileID: 4482756915926652176}
+  - component: {fileID: 2502357889325195580}
   m_Layer: 0
   m_Name: Slime_Green
   m_TagString: S_Green
@@ -94,6 +95,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73c8fa6d7cd14e4bad7967da2d9f697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2502357889325195580
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797536629575295785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c4e6d4d346d261438887a582b2821b5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7615411932496617528
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +159,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -219,6 +240,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
