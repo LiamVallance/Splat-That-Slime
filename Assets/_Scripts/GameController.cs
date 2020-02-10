@@ -56,6 +56,20 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void checkSlime(GameObject slime)
+    {
+        if (slime.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled == false) { return; }
+        
+        Splat(slime);
+
+        if (slime.tag == "S_Green")
+            Score();
+        else if (slime.tag == "S_Red")
+            Lose();
+        else
+            Fail();
+    }
+
     private void Score()
     {
         ScM.IncrementScore();
@@ -73,6 +87,7 @@ public class GameController : MonoBehaviour
     private void Lose()
     {
         ScM.DecrementScore();
+        ScM.AddFailCounter();
         ScM.comboCounter = 0;
         ScM.comboBonus = 1;
     }
@@ -84,19 +99,7 @@ public class GameController : MonoBehaviour
         ScM.comboBonus = 1;
     }
 
-    private void checkSlime(GameObject slime)
-    {
-        if (slime.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled == false) { return; }
-        
-        Splat(slime);
-
-        if (slime.tag == "S_Green")
-            Score();
-        else if (slime.tag == "S_Red")
-            Lose();
-        else
-            Fail();
-    }
+    
 
     
     private void Splat(GameObject slime)
