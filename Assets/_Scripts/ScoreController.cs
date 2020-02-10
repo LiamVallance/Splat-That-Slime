@@ -68,6 +68,16 @@ public class ScoreController : MonoBehaviour
             GameOver();   
     }
 
+    public void ResetFails()
+    {
+        fail_Counter = 0;
+        foreach(Image counter in Fail_Counters)
+        {
+            counter.enabled = false;
+        }
+
+    }
+
     private void ComboUpdate()
     {
         slider.value = comboCounter;

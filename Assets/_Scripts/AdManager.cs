@@ -1,11 +1,65 @@
 ﻿using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class AdManager : MonoBehaviour
+public class AdManager : MonoBehaviour, IUnityAdsListener
 {
-    // Start is called before the first frame update
-    void Start()
+    private string playStorID = "3464973";
+    private string appStorID = "3464972";
+
+    private string interstitialAd = "video";
+    private string rewardedVideoAd = "rewardedVideo";
+
+    public bool isTargetPlayStore;
+    public bool isTestAd;
+
+    private void Start()
     {
+        Advertisement.AddListener(this);
+        InitializeAd();
+    }
+
+    private void InitializeAd()
+    {
+        if(isTargetPlayStore) { Advertisement.Initialize(playStorID, isTestAd); return; }
+        Advertisement.Initialize(appStorID, isTestAd);
+    }
+
+    public void PlayInterstitialAd()
+    {
+        if(!Advertisement.IsReady(interstitialAd)) { return; }
+        Advertisement.Show(interstitialAd);
+    }
+
+    public void PlayRewardedVideoAd()
+    {
+        if(!Advertisement.IsReady(rewardedVideoAd)) { return; }
+        Advertisement.Show(rewardedVideoAd);
         
     }
+
+    void IUnityAdsListener.OnUnityAdsReady(string placementId){}
+    void IUnityAdsListener.OnUnityAdsDidError(string message){}
+    void IUnityAdsListener.OnUnityAdsDidStart(string placementId)
+    {
+        //mute all game audio
+    }
+    void IUnityAdsListener.OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    {
+        switch(showResult)
+        {
+            case ShowResult.Failed:
+                break;
+            case ShowResult.Skipped:
+                break;
+            case ShowResult.Finished:
+                if(placementId ==  rewardedVideoAd) 
+                {
+                    // player reward
+                }
+                break;
+        }
+    }
+
+
+
 }

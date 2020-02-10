@@ -114,6 +114,13 @@ public class GameController : MonoBehaviour
         gameOverUI.SetActive(true);
     }
 
+    public void AdPlayedContinue()
+    {
+        gameOverUI.SetActive(false);
+        ScM.ResetFails();
+        UnPauseGame();
+    }
+
     public void PauseGame()
     {
         gamePaused = true;
