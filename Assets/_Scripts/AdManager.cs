@@ -12,6 +12,7 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     public bool isTargetPlayStore;
     public bool isTestAd;
 
+
     private void Start()
     {
         Advertisement.AddListener(this);
@@ -27,6 +28,8 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     public void PlayInterstitialAd()
     {
         if(!Advertisement.IsReady(interstitialAd)) { return; }
+        if (AdTimer.Instance == null) { return;  }
+        if (!AdTimer.Instance.canShowAd) { return; }
         Advertisement.Show(interstitialAd);
     }
 
@@ -50,11 +53,16 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
             case ShowResult.Failed:
                 break;
             case ShowResult.Skipped:
+                AdTimer.Instance.resetTimer();
+                FindObjectOfType<MenuController>().Play();
                 break;
             case ShowResult.Finished:
-                if(placementId ==  rewardedVideoAd) 
+                if(placementId ==  rewardedVideoAd)
+                    FindObjectOfType<GameController>().AdPlayedContinue();
+                else
                 {
-                    // player reward
+                    AdTimer.Instance.resetTimer();
+                    FindObjectOfType<MenuController>().Play();
                 }
                 break;
         }

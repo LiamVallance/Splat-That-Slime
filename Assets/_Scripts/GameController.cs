@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     SpawnController SpM;
 
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject AdContinue_btn;
 
     public string lastShape;
 
@@ -99,9 +100,6 @@ public class GameController : MonoBehaviour
         ScM.comboBonus = 1;
     }
 
-    
-
-    
     private void Splat(GameObject slime)
     {
         slime.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
@@ -119,6 +117,17 @@ public class GameController : MonoBehaviour
         gameOverUI.SetActive(false);
         ScM.ResetFails();
         UnPauseGame();
+        AdWatched();
+    }
+
+    private void AdWatched()
+    {
+        AdContinue_btn.SetActive(false);
+    }
+
+    private void AdReset()
+    {
+        AdContinue_btn.SetActive(true);
     }
 
     public void PauseGame()

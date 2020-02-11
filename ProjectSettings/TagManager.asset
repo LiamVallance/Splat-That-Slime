@@ -18,6 +18,8 @@ TagManager:
   - S_Gold
   - S_White
   - S_Purple
+  - AdManager
+  - GameOverUI
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,9 @@ public class MenuController : MonoBehaviour
     
     public void Play()
     {
+        if (AdTimer.Instance != null)
+            if(AdTimer.Instance.canShowAd) { return; }
+                
         SceneManager.LoadScene(1);
     }
     
