@@ -28,20 +28,20 @@ public class AdTimer : MonoBehaviour
             if (adTimer <= 0.0f)
                 timerEnded();
 
-            Debug.Log("Timer = " + adTimer);
+            //Debug.Log("Timer = " + adTimer);
         }
     }
 
     public void timerEnded()
     {
         canShowAd = true;
-        Debug.Log("canShowAs = " + canShowAd);
+        //Debug.Log("canShowAs = " + canShowAd);
     }
 
     public void resetTimer()
     {
         canShowAd = false;
         adTimer = 120.0f;
-        Debug.Log("canShowAs = " + canShowAd);
+        //Debug.Log("canShowAs = " + canShowAd);
     }
 }

@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
+    }
 
     public void MainMenu()
     {
@@ -32,6 +38,6 @@ public class MenuController : MonoBehaviour
 
     public void PlaySelectSound()
     {
-        FindObjectOfType<AudioManager>().Play("Selection");
+        audioManager.Play("Selection");
     }
 }
