@@ -29,4 +29,9 @@ public class MenuController : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("HighScore");
     }
+
+    public void PlaySelectSound()
+    {
+        FindObjectOfType<AudioManager>().Play("Selection");
+    }
 }
