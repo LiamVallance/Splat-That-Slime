@@ -30,23 +30,29 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+        if(PlayerPrefs.GetInt("GameMute") == 1)
+            Mute();
+        else
+            UnMute();
         Play("BGMusic");
     }
 
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null) { return; }
-        s.source.Play();
+        if (s != null)
+            s.source.Play();
     }
 
     public void Mute()
     {
-        AudioListener.volume = 0f;
+        AudioListener.pause = true;
+        PlayerPrefs.SetInt("GameMute", 1);
     }
 
     public void UnMute()
     {
-        AudioListener.volume = 1f;
+        AudioListener.pause = false;
+        PlayerPrefs.SetInt("GameMute", 0);
     }
 }

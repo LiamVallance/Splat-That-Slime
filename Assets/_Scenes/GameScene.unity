@@ -1353,7 +1353,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1152946813}
+      - m_Target: {fileID: 4571330280172135691, guid: 6bd431a3eef07da4aac058629a99bac4,
+          type: 3}
         m_MethodName: Mute
         m_Mode: 1
         m_Arguments:
@@ -1809,7 +1810,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1152946813}
+      - m_Target: {fileID: 4571330280172135691, guid: 6bd431a3eef07da4aac058629a99bac4,
+          type: 3}
         m_MethodName: UnMute
         m_Mode: 1
         m_Arguments:
@@ -2854,18 +2856,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bd431a3eef07da4aac058629a99bac4, type: 3}
---- !u!114 &1152946813 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4571330280172135691, guid: 6bd431a3eef07da4aac058629a99bac4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1152946812}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e62e0d0c60027f74b9680575354ca5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1156246546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5116,6 +5106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb64c23a6f762d848a1fa08fd1f33c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mute_btn: {fileID: 644685997}
+  UnMute_btn: {fileID: 736085455}
   gameOverUI: {fileID: 564586484}
   AdContinue_btn: {fileID: 1813595069}
   lastShape: 

@@ -7,11 +7,6 @@ public class MenuController : MonoBehaviour
 {
     AudioManager audioManager;
 
-    void Awake()
-    {
-        audioManager = GameObject.FindObjectOfType<AudioManager>();
-    }
-
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
@@ -38,6 +33,6 @@ public class MenuController : MonoBehaviour
 
     public void PlaySelectSound()
     {
-        audioManager.Play("Selection");
+        GameObject.FindObjectOfType<AudioManager>().Play("Selection");
     }
 }

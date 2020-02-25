@@ -46,7 +46,7 @@ MonoBehaviour:
   sounds:
   - name: Selection
     clip: {fileID: 8300000, guid: a5a76f6dda2853742ab67f577d5d554c, type: 3}
-    volume: 1
+    volume: 0.4
     pitch: 1.5
     loop: 0
     source: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BGMusic
     clip: {fileID: 8300000, guid: 03b9214ba79add849a7c6d87d263a381, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}

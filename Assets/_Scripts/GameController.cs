@@ -7,6 +7,9 @@ public class GameController : MonoBehaviour
     ScoreController ScM;
     SpawnController SpM;
     AudioManager audioManager;
+
+    [SerializeField] private GameObject Mute_btn;
+    [SerializeField] private GameObject UnMute_btn;
     
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject AdContinue_btn;
@@ -26,7 +29,11 @@ public class GameController : MonoBehaviour
     {
         ScM = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreController>();
         SpM = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnController>();
-        audioManager = GameObject.FindObjectOfType<AudioManager>();
+        if (AudioListener.pause)
+        {
+            Mute_btn.SetActive(false);
+            UnMute_btn.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -106,7 +113,7 @@ public class GameController : MonoBehaviour
     {
         slime.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         slime.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-        audioManager.Play("Splat");
+        GameObject.FindObjectOfType<AudioManager>().Play("Splat");
     }
 
     public void GameOver()
