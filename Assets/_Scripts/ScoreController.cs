@@ -6,6 +6,7 @@ using TMPro;
 
 public class ScoreController : MonoBehaviour
 {
+    [Header("Game UI")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private TextMeshProUGUI AddScoreText;
@@ -16,9 +17,15 @@ public class ScoreController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI comboText;
     
     [SerializeField] private Image[] Fail_Counters;
+    [Header("Modifiers")]
     public int score = 0;
     public int comboCounter;
     public int comboBonus;
+    [Header("GameOver UI")]
+    [SerializeField] private GameObject gameOverNewHS;
+    [SerializeField] private TextMeshProUGUI gameOverHS;
+
+
     private int highScore;
     private int fail_Counter = 0;
 
@@ -96,6 +103,12 @@ public class ScoreController : MonoBehaviour
     // Calls game over state in GameController script, also calls for the highscore to be checked
     private void GameOver()
     {
+        if (score > highScore)
+        {
+            gameOverNewHS.SetActive(true);
+            gameOverHS.text = score.ToString();
+        }
+
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameController>().GameOver();
         HighScore();
     }
