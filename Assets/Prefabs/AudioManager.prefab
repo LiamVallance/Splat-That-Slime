@@ -45,9 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Selection
-    clip: {fileID: 8300000, guid: a5a76f6dda2853742ab67f577d5d554c, type: 3}
-    volume: 0.4
-    pitch: 1.5
+    clip: {fileID: 8300000, guid: 87e44ffb10bfd434093cb40b5bb5f0f4, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Splat
