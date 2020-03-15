@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameController : MonoBehaviour
     
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject AdContinue_btn;
+    [SerializeField] private TextMeshProUGUI Starter_Message;
+
 
     public string lastShape;
 
@@ -89,7 +92,10 @@ public class GameController : MonoBehaviour
         if (ScM.score > 400)
             SpM.stage = 5;
         else if (ScM.score > 300)
+        {
             SpM.stage = 4;
+            Starter_Message.enabled = false;
+        }
         else
             SpM.stage = 3;
         if (lastShape == "S_Green")
