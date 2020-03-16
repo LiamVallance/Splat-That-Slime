@@ -79,8 +79,8 @@ public class GameController : MonoBehaviour
 
         if (slime.tag == "S_Green")
             Score();
-        else if (slime.tag == "S_Red")
-            Lose();
+        //else if (slime.tag == "S_Red")
+        //    Lose();
         else
             Fail();
     }
