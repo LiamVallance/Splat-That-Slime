@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTargetPlayStore: 1
-  isTestAd: 1
+  isTestAd: 0
 --- !u!4 &436821192
 Transform:
   m_ObjectHideFlags: 0

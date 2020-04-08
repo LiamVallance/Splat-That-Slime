@@ -1973,7 +1973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTargetPlayStore: 1
-  isTestAd: 1
+  isTestAd: 0
 --- !u!1 &774841775
 GameObject:
   m_ObjectHideFlags: 0
